@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Do you like burgers?</title>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+<link href='http://fonts.googleapis.com/css?family=Bowlby+One' rel='stylesheet' type='text/css'>
+<style type="text/css">
+
+body{
+	background-color: #fff;
+	font-family: Arial;
+	}
+.wrapper{
+	margin: 0 auto;
+}
+
+#question{
+	z-index: 99;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	position: fixed;
+
+}
+#question h1{
+	color: #fff;
+	font-family: Arial;
+	font-size: 5em;
+	font-weight: bold;
+	text-align: center;
+	position: relative;
+	top: 20%;
+	letter-spacing:3px;
+
+}
+#yes{
+	color: #fff;
+	font-family: Arial;
+	font-size: 5em;
+	text-align: left;
+	position: relative;
+	top: 20%;
+	float: left;
+	transition: all 500;
+}
+#yes:hover{
+	font-size: 10em;
+}
+#no{
+	color: #fff;
+	font-family: Arial;
+	font-size: 5em;
+	float: right;
+	position: relative;
+	top: 20%;
+	transition: all 500;
+	display: inline-block;
+
+}
+#no:hover{
+	font-size: 10em;
+
+}
+#answers{
+	cursor: pointer;
+	width:40%;
+	margin: 0 auto;
+	position: relative;
+	top: 25%;
+	display: block;
+}
+video.clip{
+	margin: 0;
+	padding: 0;
+	width: 100%;
+}
+
+*{
+	margin: 0;
+	padding: 0;
+}
+
+.video-placeholder{
+	display: none;
+	float: left;
+	width: 200px;
+	height: 200px;
+	margin: 0;
+	padding: 0;
+}
+#answer-yes{
+	display: none;
+	z-index: 15;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	position: fixed;
+
+}
+#answer-yes h2{
+
+	color: #fff;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 5em;
+	text-align: center;
+	position: relative;
+	top: 20%;
+}
+
+#answer-no{
+        display: none;
+	z-index: 15;
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	position: fixed;
+
+}
+#answer-no h2{
+	color: #fff;
+	font-family: Arial;
+	font-weight: bold;
+	font-size: 5em;
+	text-align: center;
+	position: relative;
+	top: 20%;
+}
+
+.footer{
+	margin: 0 auto;
+	width: 100%;
+	background-color: #000;
+	clear: both;
+	height: 300px;
+}
+.footer h2{
+	color: #fff;
+	font-size: 3em;
+	font-family: Arial;
+	text-align: center;
+	position: relative;
+	top: 20%;
+}
+
+.footer h3{
+	color: #fff;
+	font-size: 1.5em;
+	font-family: Arial;
+	font-weight: 100;
+	text-align: center;
+	position: relative;
+	top: 25%;
+}
+.footer a{
+	font-weight: bold;
+	color: #fff;
+	text-decoration: none;
+	transition: all 500;
+}
+.footer a:hover{
+	opacity: .2;
+
+}
+
+#map{
+	width: 100%;
+}
+#logo{
+	margin: 0;
+	padding: 0;
+	z-index: 10;
+}
+@media (min-width: 400px){
+	.wrapper{
+		width: 400px;
+
+	}
+
+	#map{
+		width: 400px;
+		height: 400px;
+	}
+	#logo{
+		position: relative;
+		left: 0;
+		top: 100px;
+		margin: 0;
+		padding: 0;
+		z-index: 10;
+	}
+}
+
+@media (min-width: 600px){
+	.wrapper{
+		width: 600px;
+	}
+	#map{
+		width: 600px;
+		height: 400px;
+	}
+	#logo{
+		position: relative;
+		left: 20%;
+		top: 100px;
+		margin: 0;
+		padding: 0;
+		z-index: 10;
+	}
+}
+@media (min-width: 1200px){
+	.wrapper{
+		width: 1200px;
+	}
+	#logo{
+		position: relative;
+		left: 33%;
+		top: 100px;
+		margin: 0;
+		padding: 0;
+		z-index: 10;
+	}
+	#map{
+		width: 1200px;
+		height: 600px;
+	}
+
+}
+</style>
+</head>
+<body>
+
+<div id="question">
+	<h1>Do you like burgers?</h1>
+	<div id="answers">
+		<div id="yes">Yes.</div>
+		<div id="no">No.</div>
+	</div>
+</div>
+
+<div id="answer-yes">
+<h2>Hell yeah!<br/>Everybody likes burgers.</h2>
+</div>
+
+<div id="answer-no">
+<h2>Wrong.<br/>Everybody likes burgers.</h2>
+</div>
+
+
+<div class="wrapper">
+<!--
+<div class="video-placeholder">
+<video class="clip" width="200" height="200" autoplay="autoplay" loop="true">
+  <source src="videos/best-bite-36.mp4" type="video/mp4">
+Your browser does not support the video tag.
+</video>
+</div>
+-->
+
+<div id="videos"></div>
+
+<div class="footer">
+<h2>Everybody likes burgers.</h2>
+<h3>Visit <a href="http://beechstburger.com/">Beech St Burger</a> for a big messy delicious burger</h3>
+<img id="logo" src="images/beech-street-burger-logo.png" alt="">
+</div>
+
+<iframe id="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?q=40+Beech+St&amp;ie=UTF8&amp;hq=&amp;hnear=40+Beech+St,+Ottawa,+Ontario+K1S+4M9&amp;t=m&amp;z=14&amp;ll=45.401236,-75.707417&amp;output=embed"></iframe>
+
+</div>
+
+
+
+<script>
+	var videoDiv1 = "<div class='video-placeholder'><video class='clip' width=200' height='200' preload='auto' autoplay='autoplay' loop='true'><source src='";
+	var videoDiv2 = "' type='video/mp4'>Your browser does not support the video tag.</video></div>"
+	
+	var videos = ["videos/best-bite-1.mp4",
+		  "videos/best-bite-2.mp4",
+		  "videos/best-bite-3.mp4",
+		  "videos/best-bite-4.mp4",
+		  "videos/best-bite-5.mp4",
+		  "videos/best-bite-6.mp4",
+		  "videos/best-bite-7.mp4",
+		  "videos/best-bite-8.mp4",
+		  "videos/best-bite-9.mp4",
+		  "videos/best-bite-10.mp4",
+		  "videos/best-bite-11.mp4",
+		  "videos/best-bite-12.mp4",
+		  "videos/best-bite-13.mp4",
+		  "videos/best-bite-14.mp4",
+		  "videos/best-bite-15.mp4",
+		  "videos/best-bite-16.mp4",
+		  "videos/best-bite-17.mp4",
+		  "videos/best-bite-18.mp4",
+		  "videos/best-bite-19.mp4",
+		  "videos/best-bite-20.mp4",
+		  "videos/best-bite-21.mp4",
+		  "videos/best-bite-22.mp4",
+		  "videos/best-bite-23.mp4",
+		  "videos/best-bite-24.mp4",
+		  "videos/best-bite-25.mp4",
+		  "videos/best-bite-26.mp4",
+		  "videos/best-bite-27.mp4",
+		  "videos/best-bite-28.mp4",
+		  "videos/best-bite-29.mp4",
+		  "videos/best-bite-30.mp4",
+		  "videos/best-bite-31.mp4",
+		  "videos/best-bite-32.mp4",
+		  "videos/best-bite-33.mp4",
+		  "videos/best-bite-34.mp4",
+		  "videos/best-bite-35.mp4",
+		  "videos/best-bite-36.mp4"];
+	
+	var videoDisplayed = [];
+			  
+		  
+	function initVideoDisplayed() {
+		for (var i = 0; i < videos.length; i++) {
+			videoDisplayed[i] = 0;
+		}
+	}
+	
+	function addVideo(i) {
+		if (i < videos.length) {
+			var videoDiv = $(videoDiv1 + videos[i] + videoDiv2).appendTo('#videos');
+			var video = $('video').last();
+			
+			video.on('canplaythrough', function () {
+				if (videoDisplayed[i] == 0) {
+					videoDisplayed[i] = 1;
+					videoDiv.fadeIn(400);
+					
+					setTimeout(function () {
+						addVideo(i + 1);
+					}, 700);
+				}
+			});
+		}
+	}
+	
+	$(document).ready(function () {
+		initVideoDisplayed();
+		
+		$("#yes").click(function () {
+		    $("#answer-yes").show(function () {
+			$("#question").fadeOut("slow");
+			setTimeout(function () {
+			    $("#answer-yes").fadeOut("slow");
+			    addVideo(0);
+			}, 2000);
+		    });
+		});
+		
+		$("#no").click(function () {
+		    $("#answer-no").show(function () {
+			$("#question").fadeOut("slow");
+			setTimeout(function () {
+			    $("#answer-no").fadeOut("slow");
+			    addVideo(0);
+			}, 2000);
+		    });
+		});
+	})
+ </script>
+</body>
+</html>
