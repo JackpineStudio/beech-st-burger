@@ -272,63 +272,31 @@ Your browser does not support the video tag.
 
 
 <script>
-	var videoDiv1 = "<div class='video-placeholder'><video class='clip' width=200' height='200' preload='auto' autoplay='autoplay' loop='true'><source src='";
-	var videoDiv2 = "' type='video/mp4'>Your browser does not support the video tag.</video></div>"
+	var videoDiv1 = "<div class='video-placeholder'><video class='clip' width=200' height='200' preload='auto' autoplay='autoplay' loop='true'>";
+	var videoWebM1 = "<source type='video/webm' src='videos/best-bite-";
+	var videoWebM2 = ".webm'></source>";
+	var videoMP41 = "<source type='video/mp4' src='videos/best-bite-";
+	var videoMP42 = ".mp4'></source>";
+	var videoDiv2 = "Your browser does not support the video tag.</video></div>"
 	
-	var videos = ["videos/best-bite-1.mp4",
-		  "videos/best-bite-2.mp4",
-		  "videos/best-bite-3.mp4",
-		  "videos/best-bite-4.mp4",
-		  "videos/best-bite-5.mp4",
-		  "videos/best-bite-6.mp4",
-		  "videos/best-bite-7.mp4",
-		  "videos/best-bite-8.mp4",
-		  "videos/best-bite-9.mp4",
-		  "videos/best-bite-10.mp4",
-		  "videos/best-bite-11.mp4",
-		  "videos/best-bite-12.mp4",
-		  "videos/best-bite-13.mp4",
-		  "videos/best-bite-14.mp4",
-		  "videos/best-bite-15.mp4",
-		  "videos/best-bite-16.mp4",
-		  "videos/best-bite-17.mp4",
-		  "videos/best-bite-18.mp4",
-		  "videos/best-bite-19.mp4",
-		  "videos/best-bite-20.mp4",
-		  "videos/best-bite-21.mp4",
-		  "videos/best-bite-22.mp4",
-		  "videos/best-bite-23.mp4",
-		  "videos/best-bite-24.mp4",
-		  "videos/best-bite-25.mp4",
-		  "videos/best-bite-26.mp4",
-		  "videos/best-bite-27.mp4",
-		  "videos/best-bite-28.mp4",
-		  "videos/best-bite-29.mp4",
-		  "videos/best-bite-30.mp4",
-		  "videos/best-bite-31.mp4",
-		  "videos/best-bite-32.mp4",
-		  "videos/best-bite-33.mp4",
-		  "videos/best-bite-34.mp4",
-		  "videos/best-bite-35.mp4",
-		  "videos/best-bite-36.mp4"];
-	
+	var numVideos = 36;
 	var videoDisplayed = [];
 			  
 		  
 	function initVideoDisplayed() {
-		for (var i = 0; i < videos.length; i++) {
+		for (var i = 0; i < numVideos; i++) {
 			videoDisplayed[i] = 0;
 		}
 	}
 	
 	function addVideo(i) {
-		if (i < videos.length) {
-			var videoDiv = $(videoDiv1 + videos[i] + videoDiv2).appendTo('#videos');
+		if (i <= numVideos) {
+			var videoDiv = $(videoDiv1 + videoWebM1 + i + videoWebM2 + videoMP41 + i + videoMP42 + videoDiv2).appendTo('#videos');
 			var video = $('video').last();
 			
 			video.on('canplaythrough', function () {
-				if (videoDisplayed[i] == 0) {
-					videoDisplayed[i] = 1;
+				if (videoDisplayed[i - 1] == 0) {
+					videoDisplayed[i - 1] = 1;
 					videoDiv.fadeIn(400);
 					
 					setTimeout(function () {
@@ -347,7 +315,7 @@ Your browser does not support the video tag.
 			$("#question").fadeOut("slow");
 			setTimeout(function () {
 			    $("#answer-yes").fadeOut("slow");
-			    addVideo(0);
+			    addVideo(1);
 			}, 2000);
 		    });
 		});
@@ -357,7 +325,7 @@ Your browser does not support the video tag.
 			$("#question").fadeOut("slow");
 			setTimeout(function () {
 			    $("#answer-no").fadeOut("slow");
-			    addVideo(0);
+			    addVideo(1);
 			}, 2000);
 		    });
 		});
