@@ -1,111 +1,59 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Do you like burgers?</title>
-<meta name="description" content="Everybody likes burgers.">
-<meta name="keywords" content="Ottawa, burgers, beech, preston, Little Italy, street, beech st burgers, video, interactive">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
-<link href='http://fonts.googleapis.com/css?family=Bowlby+One' rel='stylesheet' type='text/css'>
-<meta name="handheldfriendly" content="true">
-<meta name="mobileoptimized" content="350">
-<meta name="viewport" content="width=device-width,initial-scale=1,target-densitydpi=device-dpi">
-<link rel="stylesheet" href="css/style.css">
-
+	<title>Do you like burgers?</title>
+	
+	<meta name="description" content="Everybody likes burgers.">
+	<meta name="keywords" content="Ottawa, burgers, beech, preston, Little Italy, street, beech st burgers, video, interactive">
+	<meta name="handheldfriendly" content="true">
+	<meta name="mobileoptimized" content="350">
+	<meta name="viewport" content="width=device-width,initial-scale=1,target-densitydpi=device-dpi">
+	
+	
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/code.js"></script>
+	
+	<link href='http://fonts.googleapis.com/css?family=Bowlby+One' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-
-<div id="question">
-	<h1>Do you like burgers?</h1>
-	<div id="answers">
-		<div id="yes">Yes.</div>
-		<div id="no">No.</div>
+	<div id="question">
+		<h1>Do you like burgers?</h1>
+		<div id="answers">
+			<div id="yes">Yes.</div>
+			<div id="no">No.</div>
+		</div>
 	</div>
-</div>
-
-<div id="answer-yes">
-<h2>Hell yeah!<br/>Everybody likes burgers.</h2>
-</div>
-
-<div id="answer-no">
-<h2>Wrong.<br/>Everybody likes burgers.</h2>
-</div>
-
-
-<div class="wrapper">
-
-<div id="videos"></div>
-
-<div class="footer">
-<h2>Everybody likes burgers.</h2>
-<h3>Visit <a href="http://beechstburger.com/">Beech St Burger</a> for a big messy delicious burger</h3>
-<img id="logo" src="images/beech-street-burger-logo.png" alt="">
-</div>
-
-<iframe id="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?q=40+Beech+St&amp;ie=UTF8&amp;hq=&amp;hnear=40+Beech+St,+Ottawa,+Ontario+K1S+4M9&amp;t=m&amp;z=14&amp;ll=45.401236,-75.707417&amp;output=embed"></iframe>
-
-</div>
-
-
-
-<script>
-	var videoDiv1 = "<div class='video-placeholder'><video class='clip' width=200' height='200' preload='auto' autoplay='autoplay' loop='true'>";
-	var videoWebM1 = "<source type='video/webm' src='videos/best-bite-";
-	var videoWebM2 = ".webmhd.webm'></source>";
-	var videoMP41 = "<source type='video/mp4' src='videos/best-bite-";
-	var videoMP42 = ".mp4'></source>";
-	var videoDiv2 = "Your browser does not support the video tag.</video></div>"
 	
-	var numVideos = 36;
-	var videoDisplayed = [];
-			  
-		  
-	function initVideoDisplayed() {
-		for (var i = 0; i < numVideos; i++) {
-			videoDisplayed[i] = 0;
-		}
-	}
 	
-	function addVideo(i) {
-		if (i <= numVideos) {
-			var videoDiv = $(videoDiv1 + videoWebM1 + i + videoWebM2 + videoMP41 + i + videoMP42 + videoDiv2).appendTo('#videos');
-			var video = $('video').last();
-			
-			video.on('canplay canplaythrough', function () {
-				if (videoDisplayed[i - 1] == 0) {
-					videoDisplayed[i - 1] = 1;
-					videoDiv.fadeIn(400);
-					
-					setTimeout(function () {
-						addVideo(i + 1);
-					}, 700);
-				}
-			});
-		}
-	}
+	<div id="answer-yes">
+		<h2>
+			<div id="answer-yes-1">Hell yeah!<br/></div>
+			<div id="answer-yes-2" style="display: none;">Everybody likes burgers.</div>
+		</h2>
+	</div>
 	
-	$(document).ready(function () {
-		initVideoDisplayed();
+	
+	<div id="answer-no">
+		<h2>
+			<div id="answer-no-1">Wrong.<br/></div>
+			<div id="answer-no-2" style="display: none;">Everybody likes burgers.</div>
+		</h2>
+	</div>
+	
+	
+	<div class="wrapper">
 		
-		$("#yes").click(function () {
-		    $("#answer-yes").show(function () {
-			$("#question").fadeOut("slow");
-			setTimeout(function () {
-			    $("#answer-yes").fadeOut("slow");
-			    addVideo(1);
-			}, 2000);
-		    });
-		});
+		<div id="videos"></div>
 		
-		$("#no").click(function () {
-		    $("#answer-no").show(function () {
-			$("#question").fadeOut("slow");
-			setTimeout(function () {
-			    $("#answer-no").fadeOut("slow");
-			    addVideo(1);
-			}, 2000);
-		    });
-		});
-	})
- </script>
+		<div class="footer">
+			<h2>Everybody likes burgers.</h2>
+			<h3>Visit <a href="http://beechstburger.com/">Beech St Burger</a> for a big messy delicious burger</h3>
+			<img id="logo" src="images/beech-street-burger-logo.png" alt="">
+		</div>
+		
+		<iframe id="map" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?q=40+Beech+St&amp;ie=UTF8&amp;hq=&amp;hnear=40+Beech+St,+Ottawa,+Ontario+K1S+4M9&amp;t=m&amp;z=14&amp;ll=45.401236,-75.707417&amp;output=embed"></iframe>
+	
+	</div>
 </body>
 </html>
