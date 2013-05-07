@@ -159,16 +159,31 @@ video.clip {
 	padding: 0;
 	z-index: 10;
 }
+.credit{
+	background-color: #000;
+	color: #fff;
+	text-align: center;
+}
 
-@media (min-width: 400px) {
+.credit p{
+	display: inline;
+	position: relative;
+	top: -1.7em;
+	letter-spacing: 2px;
+	font-size: .8em;
+}
+.credit img{
+	margin: .5em 0;
+}
+@media (min-width: 320px) {
 	.wrapper {
-		width: 400px;
+		width: 320px;
 
 	}
 
 	#map {
-		width: 400px;
-		height: 400px;
+		width: 320px;
+		height: 320px;
 	}
 	
 	#logo {
