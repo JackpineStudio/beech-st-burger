@@ -8,7 +8,22 @@ a{
 .wrapper {
 	margin: 0 auto;
 }
+#mobile-statement{
+	width: 100%;
+	height: 100%;
+	position: fixed;
+	top: 0;
+}
+#mobile-statement h3{
+	text-align: center;
+	font-size: 1em;
+	font-weight: bolder;
+}
 
+#mobile-statement img{
+	width: 320px;
+	
+}
 #question {
 	z-index: 99;
 	width: 100%;
