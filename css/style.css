@@ -176,15 +176,16 @@ video.clip {
 .credit img{
 	margin: .5em 0;
 }
-@media (min-width: 320px) {
+@media (min-width: 400px) {
+
 	.wrapper {
-		width: 320px;
+		width: 400px;
 
 	}
 
 	#map {
-		width: 320px;
-		height: 320px;
+		width: 400px;
+		height: 400px;
 	}
 	
 	#logo {
@@ -198,6 +199,8 @@ video.clip {
 }
 
 @media (min-width: 600px){
+
+	
 	.wrapper {
 		width: 600px;
 	}
@@ -218,6 +221,16 @@ video.clip {
 }
 
 @media (min-width: 1200px){
+	#videos-mobile{
+		display: none;
+	}
+	#videos-tablet{
+		display: none;
+	}
+	#videos{
+		display: block;
+	}
+
 	.wrapper {
 		width: 1200px;
 	}
