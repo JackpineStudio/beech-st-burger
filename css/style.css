@@ -223,7 +223,7 @@ video.clip {
 	}
 }
 
-@media (min-width: 600px){
+@media (min-width: 800px){
 #mobile-statement{
 	display: none;
 	}
