@@ -1,6 +1,6 @@
 var videoDiv1 = "<div class='video-placeholder'><video class='clip' width=200' height='200' preload='auto' autoplay='autoplay' loop='true'>";
 var videoWebM1 = "<source type='video/webm' src='videos/best-bite-";
-var videoWebM2 = ".webm'></source>";
+var videoWebM2 = ".webmhd.webm'></source>";
 var videoMP41 = "<source type='video/mp4' src='videos/best-bite-";
 var videoMP42 = ".mp4'></source>";
 var videoDiv2 = "Your browser does not support the video tag.</video></div>"
