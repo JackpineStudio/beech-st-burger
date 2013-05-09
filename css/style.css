@@ -185,7 +185,7 @@ video.clip {
 	z-index: 10;
 }
 .credit{
-	background-color: #E95258;
+	background-color: #000;
 	color: #fff;
 	text-align: center;
 }
@@ -193,9 +193,9 @@ video.clip {
 .credit p{
 	display: inline;
 	position: relative;
-	top: -1.7em;
+	top: -2.2em;
 	letter-spacing: 2px;
-	font-size: .8em;
+	font-size: .5em;
 	padding: 0 1em;
 }
 .credit img{
